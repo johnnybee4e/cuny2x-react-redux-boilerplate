@@ -11,7 +11,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onIncrement: () => {
-      console.log('fired!')
       dispatch(increment(5));
     },
     onDecrement: () => {
