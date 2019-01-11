@@ -1,16 +1,22 @@
-import { INCREMENT, DECREMENT } from "../actions";
+import { INCREMENT, DECREMENT, RESET } from "../actions";
 
 // initialize default state
-const initialState = 0;
+const initialState = {
+  value: 0
+};
 
 // create reducer function
 
 export default (state = initialState, action) => {
+  console.log(state.value);
   switch (action.type) {
     case INCREMENT:
-      return state + 1;
+      console.log(action);
+      return Object.assign({}, state, state.value += action.value);
     case DECREMENT:
-      return state - 1;
+      return Object.assign({}, state, state.value--);
+    case RESET:
+      return Object.assign({}, state, (state.value = 0));
     default:
       return state;
   }
